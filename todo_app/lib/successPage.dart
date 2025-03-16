@@ -15,7 +15,7 @@ class _SuccesspageState extends State<Successpage> {
   @override 
   void initState() { 
     super.initState(); 
-    Timer(const Duration(seconds: 3), 
+    Timer(const Duration(seconds: 1), 
       ()=>Navigator.pushReplacement(context, 
           MaterialPageRoute(builder: (context) =>  const dashBoardPage() 
         ), 

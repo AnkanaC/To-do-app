@@ -84,20 +84,22 @@ class _taskPageState extends State<taskPage> {
                   prefix: Icon(Icons.task),
                   border: OutlineInputBorder(),
                 ),
-                maxLines: 3,
               ),
             ),
             const SizedBox(height: 10),
-            Expanded(
-              child: TextField(
-                controller: _timeController,
-                decoration: const InputDecoration(
-                  labelText: 'Select Time',
-                  prefixIcon: Icon(Icons.access_time),
-                  border: OutlineInputBorder(),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Expanded(
+                child: TextField(
+                  controller: _timeController,
+                  decoration: const InputDecoration(
+                    labelText: 'Select Time',
+                    prefixIcon: Icon(Icons.access_time),
+                    border: OutlineInputBorder(),
+                  ),
+                  readOnly: true,
+                  onTap: () => _selectTime(context),
                 ),
-                readOnly: true,
-                onTap: () => _selectTime(context),
               ),
             ),
             const SizedBox(height: 20),
