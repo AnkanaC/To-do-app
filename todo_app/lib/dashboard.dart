@@ -1,5 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_app/task.dart';
 
 class dashBoardPage extends StatefulWidget {
   const dashBoardPage({super.key});
@@ -9,15 +9,6 @@ class dashBoardPage extends StatefulWidget {
 }
 
 class _dashBoardPageState extends State<dashBoardPage> {
-  Future<void> uploadToDb() async {
-    try {
-      final data =
-          await FirebaseFirestore.instance.collection("Daily Tasks").add({
-        "Task Name": "Jogging",
-        "Date": "12-12-2022",
-      });
-    } catch (e) {}
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +23,12 @@ class _dashBoardPageState extends State<dashBoardPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          try {
-            uploadToDb();
-          } catch (e) {
-            print(e);
-          }
-          ;
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const taskPage(),
+            ),
+          );
         },
         tooltip: "Add Task",
         child: const Icon(Icons.add),
